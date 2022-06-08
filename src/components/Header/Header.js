@@ -2,13 +2,15 @@ import React from "react";
 
 const Header = () => {
 
+    const logo = require('../../assets/img/icon/logo.svg').default;
+
     return (
         <header className="store-header">
           <div className="container">
             <div className="store-header__wrapper">
     
               <a href="/" className="logo">
-                {/* <img src={logo} alt="Logo"/> */}
+                <img src={logo} alt="Logo"/>
               </a>
               
               <label className="store-header__address">
