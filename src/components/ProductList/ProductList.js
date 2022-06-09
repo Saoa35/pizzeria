@@ -14,7 +14,11 @@ const ProductList = () => {
                     <div className="category">${'category'}</div>
                 </div>
             </div>
-            
+
+            <div className="cards menu_cards">
+                
+            </div>
+
         </section>
     )
 }
