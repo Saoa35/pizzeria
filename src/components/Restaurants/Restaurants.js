@@ -1,8 +1,11 @@
 import React from 'react';
+import usePageData from '../../custom-hooks/usePageData';
+import RestaurantCard from '../RestaurantCard/RestaurantCard';
+import Spinner from '../Spinner/Spinner';
 
 const Restaurants = () => {
 
-    const spinner = require("../../assets/img/spinner.gif");
+    const restaurantsList = usePageData('partners');
 
     return (
         <section className="restaurants">
@@ -13,9 +16,15 @@ const Restaurants = () => {
             </label>
           </div>
           <div className="restaurants__cards cards">
-              <div className='restaurants__spinner'>
-                  <img src={spinner} alt='spinner' />
-              </div>
+
+            {restaurantsList
+                ? restaurantsList.length
+                    ? restaurantsList.map(item => {
+                        return <RestaurantCard key={item.image} {...item}/>
+                      })
+                    : <h3>(no items)</h3>
+                : <Spinner/>}
+
           </div>
         </section>
     )
