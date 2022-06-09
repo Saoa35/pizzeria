@@ -1,22 +1,28 @@
-// import usePageData from '../../custom-hooks/usePageData';
-import Banner from '../Banner/Banner';
 import Header from '../Header/Header';
-import Restaurants from '../Restaurants/Restaurants';
+import Footer from '../Footer/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
+import HomePage from '../HomePage/HomePage';
 
 function App() {
 
-  // const data = usePageData('foodBand');
-
   return (
     <div className="App">
-      
-      <Header/>
 
       <main className='main'>
         <div className='container'>
-          <Banner/>
-          <Restaurants/>
+
+          <Router>
+
+            <Header/>
+
+            <Routes>
+              <Route path='/' element={<HomePage/>}/>
+            </Routes>
+            
+            <Footer/>
+          </Router>  
+          
         </div>
       </main>
 
