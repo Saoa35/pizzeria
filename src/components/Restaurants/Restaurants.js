@@ -2,6 +2,8 @@ import React from 'react';
 
 const Restaurants = () => {
 
+    const spinner = require("../../assets/img/spinner.gif");
+
     return (
         <section className="restaurants">
           <div className="restaurants__heading">
@@ -12,7 +14,7 @@ const Restaurants = () => {
           </div>
           <div className="restaurants__cards cards">
               <div className='restaurants__spinner'>
-                  <img src="" alt='spinner' />
+                  <img src={spinner} alt='spinner' />
               </div>
           </div>
         </section>
