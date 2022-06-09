@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -9,9 +10,9 @@ const Header = () => {
           <div className="container">
             <div className="store-header__wrapper">
     
-              <a href="/" className="logo">
+              <Link to="/" className="logo">
                 <img src={logo} alt="Logo"/>
-              </a>
+              </Link>
               
               <label className="store-header__address">
                 <input type="text" className="input store-header__input-address" placeholder="Адрес доставки"/>
