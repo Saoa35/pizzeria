@@ -1,6 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const ProductList = () => {
+
+    const  { products } = useParams();
 
     return(
         <section className="menu">
