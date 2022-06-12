@@ -5,7 +5,8 @@ const Portal = ({ children }) => {
 
     useEffect(() => {
         document.body.style.overflow = 'hidden';
-    })
+        return () => document.body.style.overflow = '';
+    }, []);
 
     return ReactDOM.createPortal(children, document.getElementById('modal'));
 }
