@@ -22,7 +22,7 @@ const ModalAuth = ({ onClose, dispatch }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(logIn(data.login))
+        dispatch(logIn(data));
 
         onClose();
     }
