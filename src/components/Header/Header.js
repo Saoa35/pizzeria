@@ -11,7 +11,7 @@ const Header = ({ login }) => {
     setIsLoginModal(!isLoginModal);
   }
 
-    console.log(login);
+    // console.log(login);
 
     const logo = require('../../assets/img/icon/logo.svg').default;
 
@@ -29,12 +29,12 @@ const Header = ({ login }) => {
               </label>
     
               <div className="store-header__buttons">
-                <span className="store-header__user-name"></span>
+                <span className="store-header__user-name">{login}</span>
     
-                <button className="button button-primary button-auth" onClick={handleLoginModal}>
+                {!login && <button className="button button-primary button-auth" onClick={handleLoginModal}>
                   <span className="button-auth-svg"></span>
                   <span className="button-text">Войти</span>
-                </button>
+                </button>}
 
                 {login && 
                   <>
@@ -61,7 +61,7 @@ const Header = ({ login }) => {
 }
 
 const mapStateToProps = (state) => ({
-  login: state
+  login: state.login
 })
 
 export default connect(mapStateToProps) (Header);
