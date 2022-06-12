@@ -39,8 +39,6 @@ button {
 
 	&__input-address {
 		width: 100%;
-		// background-image: url(../img/icon/home.svg);
-
     background-image: url(../../assets/img/icon/home.svg);
 	}
 
@@ -160,7 +158,6 @@ button {
 	}
 
 	&-cart, &-out {
-		// display: none;
 		margin: 0 5px;
 	}
 }
