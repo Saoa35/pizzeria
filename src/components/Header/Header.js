@@ -36,15 +36,19 @@ const Header = ({ login }) => {
                   <span className="button-text">Войти</span>
                 </button>
 
-                <button className="button button-cart" id="cart-button">
-                  <span className="button-cart-svg"></span>
-                  <span className="button-text">Корзина</span>
-                </button>
-                
-                {login && <button className="button button-primary button-out">
-                  <span className="button-text">Выйти</span>
-                  <span className="button-out-svg"></span>
-                </button>}
+                {login && 
+                  <>
+                    <button className="button button-cart" id="cart-button">
+                      <span className="button-cart-svg"></span>
+                      <span className="button-text">Корзина</span>
+                    </button>
+                    
+                    <button className="button button-primary button-out">
+                      <span className="button-text">Выйти</span>
+                      <span className="button-out-svg"></span>
+                    </button>
+                  </>
+                }
     
               </div>
     
