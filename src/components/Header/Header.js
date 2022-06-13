@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logOut } from "../../redux-store/actions";
 import ModalAuth from "../ModalAuth/ModalAuth";
 
-const Header = ({ login }) => {
+const Header = ({ login, dispatch }) => {
 
   const [isLoginModal, setIsLoginModal] = useState(false);
+  let navigate = useNavigate();
 
   const handleLoginModal = () => {
     setIsLoginModal(!isLoginModal);
   }
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+    navigate('/');
+  };
 
     // console.log(login);
 
@@ -43,7 +50,7 @@ const Header = ({ login }) => {
                       <span className="button-text">Корзина</span>
                     </button>
                     
-                    <button className="button button-primary button-out">
+                    <button className="button button-primary button-out" onClick={handleLogOut}>
                       <span className="button-text">Выйти</span>
                       <span className="button-out-svg"></span>
                     </button>
