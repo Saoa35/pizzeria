@@ -1,15 +1,15 @@
 import React from 'react';
 import Portal from '../Portal/Portal';
 
-const ModalCart = () => {
+const ModalCart = ({ onClose }) => {
 
     return(
         <Portal>
-            <div className='modal modal-cart'>
-                <div className='modal-dialog'>
+            <div className='modal modal-cart' onClick={onClose}></div>
+            <div className='modal-dialog'>
                     <div className='modal-header'>
                         <h3 className='modal-title'>Корзина</h3>
-                        <button id='modal-cart-close-btn' className='close'>&times;</button>
+                        <button onClick={onClose} className='close'>&times;</button>
                     </div>
                     <div className='modal-body'>
                         <div className='food-row'>
@@ -39,7 +39,6 @@ const ModalCart = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </Portal>
     )
 }
