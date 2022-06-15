@@ -1,8 +1,27 @@
 import React from 'react';
+import { connect } from "react-redux";
 
-const ProductCard = ({ id, description, image, name, price }) => {
+const ProductCard = ({ id, description, image, name, price, login }) => {
 
     const src = require(`../../assets/${image}`);
+
+    const handleAddToBasket = () => {
+
+        const loginStorageData = localStorage.getItem(login);
+  
+        const data = [{
+            id,
+            title: name,
+            cost: price,
+            count: 1
+        }];
+
+        if(!!loginStorageData) {
+
+            const allData = JSON.parse(loginStorageData);
+            const isSameCount = !!allData.find(item => item.id === id);
+        }
+      };
 
     return(
         <div className='card'>
@@ -29,4 +48,8 @@ const ProductCard = ({ id, description, image, name, price }) => {
     )
 }
 
-export default ProductCard;
+const mapStateToProps = (state) => ({
+    login: state.login
+})
+
+export default connect(mapStateToProps) (ProductCard);
