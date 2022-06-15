@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Restaurants from '../Restaurants/Restaurants';
+import SearchInput from '../SearchInput/SearchInput';
 
 
 const HomePage = () => {
@@ -8,7 +9,10 @@ const HomePage = () => {
     return (
         <>
             <Banner/>
-            <Restaurants/>
+            <section className="restaurants">
+                <SearchInput />
+                <Restaurants/>
+            </section>    
         </>
     )
 }
