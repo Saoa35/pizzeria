@@ -3,14 +3,20 @@ import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logOut } from "../../redux-store/actions";
 import ModalAuth from "../ModalAuth/ModalAuth";
+import ModalCart from "../ModalCart/ModalCart";
 
 const Header = ({ login, dispatch }) => {
 
   const [isLoginModal, setIsLoginModal] = useState(false);
+  const [isBasketModal, setIsBasketModal] = useState(false);
   let navigate = useNavigate();
 
   const handleLoginModal = () => {
     setIsLoginModal(!isLoginModal);
+  }
+
+  const handleBasketModal = () => {
+    setIsBasketModal(!isBasketModal);
   }
 
   const handleLogOut = () => {
@@ -45,7 +51,7 @@ const Header = ({ login, dispatch }) => {
 
                 {login && 
                   <>
-                    <button className="button button-cart" id="cart-button">
+                    <button className="button button-cart" id="cart-button" onClick={handleBasketModal}>
                       <span className="button-cart-svg"></span>
                       <span className="button-text">Корзина</span>
                     </button>
@@ -63,6 +69,7 @@ const Header = ({ login, dispatch }) => {
           </div>
 
           {isLoginModal && <ModalAuth onClose={handleLoginModal}/>}
+          {isBasketModal && <ModalCart onClose={handleBasketModal}/>}
         </header>
       )
 }
