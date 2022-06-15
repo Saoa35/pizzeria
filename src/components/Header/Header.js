@@ -69,7 +69,7 @@ const Header = ({ login, dispatch }) => {
           </div>
 
           {isLoginModal && <ModalAuth onClose={handleLoginModal}/>}
-          {isBasketModal && <ModalCart onClose={handleBasketModal}/>}
+          {isBasketModal && <ModalCart onClose={handleBasketModal} login={login}/>}
         </header>
       )
 }
