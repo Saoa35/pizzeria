@@ -20,6 +20,22 @@ const ProductCard = ({ id, description, image, name, price, login }) => {
 
             const allData = JSON.parse(loginStorageData);
             const isSameCount = !!allData.find(item => item.id === id);
+
+            if(isSameCount) {
+                allData.forEach(item => {
+                    if(item.id === id) {
+                        item.count += 1;
+                    }
+                });
+                localStorage.setItem(login, JSON.stringify(allData));
+            } else {
+                const newData = allData.concat([...data]);
+                localStorage.setItem(login, JSON.stringify(newData));
+            }
+        } else {
+            if(login) {
+                localStorage.setItem(login, JSON.stringify(data));
+            }
         }
       };
 
@@ -37,7 +53,7 @@ const ProductCard = ({ id, description, image, name, price, login }) => {
             </div>
 
             <div className='card-buttons'>
-                <button className='button button-primary button-add-cart'>
+                <button className='button button-primary button-add-cart' onClick={handleAddToBasket}>
                     <span className='button-card-text'>В корзину</span>
                     <span className='button-cart-svg'></span>
                 </button>
