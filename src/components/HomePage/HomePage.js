@@ -7,19 +7,21 @@ import SerchList from '../SerchList/SerchList';
 
 const HomePage = () => {
 
-    const [serch, setSerch] = useState('');
+    const [search, setSearch] = useState('');
 
     const handleChange = (e) => {
-        setSerch(e.target.value)
+        setSearch(e.target.value)
     }
 
     return (
         <>
             <Banner/>
             <section className="restaurants">
-                <SearchInput value={serch} onChange={handleChange}/>
-                <SerchList />
-                <Restaurants/>
+                <SearchInput value={search} onChange={handleChange}/>
+                {search
+                    ? <SerchList value={search}/>
+                    : <Restaurants/>
+                }
             </section>    
         </>
     )
