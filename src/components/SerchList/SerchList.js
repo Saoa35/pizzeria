@@ -20,7 +20,7 @@ const SerchList = ({ value }) => {
                                     .map(product => product.data)
                                     .filter(Boolean)
                                     .flat(Infinity)
-                                    .filter(product => product.name.toUpperCase().includes(value.toUpperCase()))
+                                    .filter(product => product.name.toUpperCase().includes(value.toUpperCase()));
         console.log(allData);
 
     return(
