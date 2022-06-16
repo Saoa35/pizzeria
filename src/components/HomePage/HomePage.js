@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Banner from '../Banner/Banner';
 import Restaurants from '../Restaurants/Restaurants';
 import SearchInput from '../SearchInput/SearchInput';
-import SerchList from '../SerchList/SerchList';
+import SearchList from '../SearchList/SearchList';
 
 
 const HomePage = () => {
@@ -19,7 +19,7 @@ const HomePage = () => {
             <section className="restaurants">
                 <SearchInput value={search} onChange={handleChange}/>
                 {search
-                    ? <SerchList value={search}/>
+                    ? <SearchList value={search}/>
                     : <Restaurants/>
                 }
             </section>    
