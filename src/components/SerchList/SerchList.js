@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import firebase from '../../utils/fb-config';
+import ProductCard from "../ProductCard/ProductCard";
 
 const SerchList = ({ value }) => {
 
@@ -14,9 +16,18 @@ const SerchList = ({ value }) => {
     
        }, []);
 
+        const allData = data && Object.values(data)
+                                    .map(product => product.data)
+                                    .filter(Boolean)
+                                    .flat(Infinity)
+                                    .filter(product => product.name.toUpperCase().includes(value.toUpperCase()))
+        console.log(allData);
+
     return(
         <div className="cards cards-menu">
-
+            {allData?.map(card => {
+                return <ProductCard key={card.id} {...card}/>
+            })}
         </div>
     )
 }
